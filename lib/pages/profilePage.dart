@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
-import 'profilePage.dart';
 import '/widgets/bottom_navigation_bar.dart';
 
-class teamMembersPage extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   final Function(int) onItemTapped;
 
-  teamMembersPage({required this.onItemTapped});
+  ProfilePage({required this.onItemTapped});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Team Members',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
+        child: Text(
+          'Profile',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
       bottomNavigationBar: BottomNavBar(
