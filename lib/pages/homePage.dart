@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Colors.blue,
+                      color: Color(0xFF008BCC),
                       textColor: Colors.white,
                       child: Icon(Icons.add),
                       padding: EdgeInsets.all(16),
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Colors.blue,
+                      color: Color(0xFF008BCC),
                       textColor: Colors.white,
                       child: Icon(Icons.cloud_upload),
                       padding: EdgeInsets.all(16),
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                                   )),
                         );
                       },
-                      color: Colors.blue,
+                      color: Color(0xFF008BCC),
                       textColor: Colors.white,
                       child: Icon(Icons.people),
                       padding: EdgeInsets.all(16),
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Colors.blue,
+                      color: Color(0xFF008BCC),
                       textColor: Colors.white,
                       child: Icon(Icons.bar_chart),
                       padding: EdgeInsets.all(16),
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Colors.blue,
+                      color: Color(0xFF008BCC),
                       textColor: Colors.white,
                       child: Icon(Icons.supervisor_account),
                       padding: EdgeInsets.all(16),
