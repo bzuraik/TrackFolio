@@ -12,7 +12,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 10), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage()),
@@ -23,11 +23,16 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SvgPicture.asset(
-          'assets/images/logo.svg',
-          width: 200,
-          height: 200,
+      body: Container(
+        color: Color(0xFF003B57),
+        child: Center(
+          child: SizedBox(
+            width: 150, // Adjust the width of the logo
+            height: 150, // Adjust the height of the logo
+            child: SvgPicture.asset(
+              'assets/images/logo2.svg',
+            ),
+          ),
         ),
       ),
     );

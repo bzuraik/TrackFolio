@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/homePage.dart';
 import 'pages/loadingPage.dart';
+import 'pages/calendarPage.dart';
+import '/widgets/bottom_navigation_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +17,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoadingPage(),
+      // home: LoadingPage(),
+      routes: {
+        '/': (BuildContext context) => LoadingPage(),
+        '/home': (context) => HomePage(),
+        '/calendar': (context) => CalendarPage(onItemTapped: (index) {}),
+      },
     );
   }
 }

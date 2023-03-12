@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'teamMembersPage.dart';
-import 'page2.dart';
+import 'profilePage.dart';
 import 'calendarPage.dart';
+import '/widgets/bottom_navigation_bar.dart';
 
 class HomePageWidget extends StatelessWidget {
   @override
@@ -23,26 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-
-  static List<Widget> _widgetOptions = <Widget>[
-    HomePageWidget(),
-    CalendarPage(),
-    Container(
-      width: 60,
-      height: 60,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.blue,
-      ),
-      child: Icon(
-        Icons.add,
-        size: 36,
-        color: Colors.white,
-      ),
-    ),
-    teamMembersPage(),
-    Page2(),
-  ];
+  late List<Widget> _widgetOptions = [];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -50,70 +32,125 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  _HomePageState() {
+    _widgetOptions = <Widget>[
+      HomePageWidget(),
+      CalendarPage(onItemTapped: _onItemTapped),
+      teamMembersPage(onItemTapped: _onItemTapped),
+      ProfilePage(onItemTapped: _onItemTapped),
+    ];
+  }
+
+  // static List<Widget> _widgetOptions = <Widget>[
+  //   HomePageWidget(),
+  //   CalendarPage(),
+  //   teamMembersPage(),
+  //   Page2(),
+  // ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _selectedIndex == 0 ? _buildAppBar() : null,
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: Column(
+        children: [
+          // First row of buttons
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Button 1'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Button 2'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Button 3'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // Second row of buttons
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Button 4'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Button 5'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // Remaining 65% of the home page
+          Expanded(
+            child: Center(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF72C3E6),
         onPressed: () {},
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {
-                _onItemTapped(0);
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.calendar_today),
-              onPressed: () {
-                _onItemTapped(1);
-              },
-            ),
-            SizedBox(width: 30),
-            IconButton(
-              icon: Image.asset(
-                'assets/images/group.png',
-                width: 24,
-                height: 24,
-              ),
-              onPressed: () {
-                _onItemTapped(3);
-              },
-            ),
-            IconButton(
-              icon: Image.asset(
-                'assets/images/user.png',
-                width: 24,
-                height: 24,
-              ),
-              onPressed: () {
-                _onItemTapped(4);
-              },
-            ),
-          ],
+        child: Icon(
+          Icons.add,
+          size: 40,
         ),
       ),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.white,
-      title: SvgPicture.asset(
-        'assets/images/logo.svg',
-        height: 50,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomNavBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
+}
+
+//top bar navigation
+AppBar _buildAppBar() {
+  return AppBar(
+    backgroundColor: Color(0xFF003B57),
+    title: Row(
+      children: [
+        Icon(
+          Icons.notifications,
+          color: Colors.white,
+        ),
+        SizedBox(width: 20),
+        Spacer(),
+        Icon(
+          Icons.search,
+          color: Colors.white,
+        ),
+      ],
+    ),
+  );
 }
