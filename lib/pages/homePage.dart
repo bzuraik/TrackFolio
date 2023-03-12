@@ -52,70 +52,103 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _selectedIndex == 0 ? _buildAppBar() : null,
-      body: Column(
-        children: [
-          // First row of buttons
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Button 1'),
-                  ),
+      body: Container(
+        height: MediaQuery.of(context).size.height * 0.30,
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {},
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      child: Icon(Icons.add),
+                      padding: EdgeInsets.all(16),
+                      shape: CircleBorder(),
+                    ),
+                    SizedBox(height: 4),
+                    Text('New Clients'),
+                  ],
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Button 2'),
-                  ),
+                Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {},
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      child: Icon(Icons.cloud_upload),
+                      padding: EdgeInsets.all(16),
+                      shape: CircleBorder(),
+                    ),
+                    SizedBox(height: 4),
+                    Text('Upload'),
+                  ],
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Button 3'),
-                  ),
+                Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => teamMembersPage(
+                                    onItemTapped: _onItemTapped,
+                                  )),
+                        );
+                      },
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      child: Icon(Icons.people),
+                      padding: EdgeInsets.all(16),
+                      shape: CircleBorder(),
+                    ),
+                    SizedBox(height: 4),
+                    Text('Team'),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          // Second row of buttons
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Button 4'),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Button 5'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          // Remaining 65% of the home page
-          Expanded(
-            child: Center(
-              child: _widgetOptions.elementAt(_selectedIndex),
+              ],
             ),
-          ),
-        ],
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {},
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      child: Icon(Icons.bar_chart),
+                      padding: EdgeInsets.all(16),
+                      shape: CircleBorder(),
+                    ),
+                    SizedBox(height: 4),
+                    Text('Statistics'),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    MaterialButton(
+                      onPressed: () {},
+                      color: Colors.blue,
+                      textColor: Colors.white,
+                      child: Icon(Icons.supervisor_account),
+                      padding: EdgeInsets.all(16),
+                      shape: CircleBorder(),
+                    ),
+                    SizedBox(height: 4),
+                    Text('Clients'),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF72C3E6),
