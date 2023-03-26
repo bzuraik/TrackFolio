@@ -1,14 +1,16 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'teamMembersPage.dart';
 import 'profilePage.dart';
 import 'calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
 
 class HomePageWidget extends StatelessWidget {
+  const HomePageWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Home Page',
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -18,7 +20,10 @@ class HomePageWidget extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -34,7 +39,7 @@ class _HomePageState extends State<HomePage> {
 
   _HomePageState() {
     _widgetOptions = <Widget>[
-      HomePageWidget(),
+      const HomePageWidget(),
       CalendarPage(onItemTapped: _onItemTapped),
       teamMembersPage(onItemTapped: _onItemTapped),
       ProfilePage(onItemTapped: _onItemTapped),
@@ -52,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _selectedIndex == 0 ? _buildAppBar() : null,
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height * 0.30,
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -65,28 +70,28 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Color(0xFF008BCC),
+                      color: const Color(0xFF008BCC),
                       textColor: Colors.white,
-                      child: Icon(Icons.add),
-                      padding: EdgeInsets.all(16),
-                      shape: CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                      shape: const CircleBorder(),
+                      child: const Icon(Icons.add),
                     ),
-                    SizedBox(height: 4),
-                    Text('New Clients'),
+                    const SizedBox(height: 4),
+                    const Text('New Clients'),
                   ],
                 ),
                 Column(
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Color(0xFF008BCC),
+                      color: const Color(0xFF008BCC),
                       textColor: Colors.white,
-                      child: Icon(Icons.cloud_upload),
-                      padding: EdgeInsets.all(16),
-                      shape: CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                      shape: const CircleBorder(),
+                      child: const Icon(Icons.cloud_upload),
                     ),
-                    SizedBox(height: 4),
-                    Text('Upload'),
+                    const SizedBox(height: 4),
+                    const Text('Upload'),
                   ],
                 ),
                 Column(
@@ -101,19 +106,19 @@ class _HomePageState extends State<HomePage> {
                                   )),
                         );
                       },
-                      color: Color(0xFF008BCC),
+                      color: const Color(0xFF008BCC),
                       textColor: Colors.white,
-                      child: Icon(Icons.people),
-                      padding: EdgeInsets.all(16),
-                      shape: CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                      shape: const CircleBorder(),
+                      child: const Icon(Icons.people),
                     ),
-                    SizedBox(height: 4),
-                    Text('Team'),
+                    const SizedBox(height: 4),
+                    const Text('Team'),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -121,28 +126,28 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Color(0xFF008BCC),
+                      color: const Color(0xFF008BCC),
                       textColor: Colors.white,
-                      child: Icon(Icons.bar_chart),
-                      padding: EdgeInsets.all(16),
-                      shape: CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                      shape: const CircleBorder(),
+                      child: const Icon(Icons.bar_chart),
                     ),
-                    SizedBox(height: 4),
-                    Text('Statistics'),
+                    const SizedBox(height: 4),
+                    const Text('Statistics'),
                   ],
                 ),
                 Column(
                   children: <Widget>[
                     MaterialButton(
                       onPressed: () {},
-                      color: Color(0xFF008BCC),
+                      color: const Color(0xFF008BCC),
                       textColor: Colors.white,
-                      child: Icon(Icons.supervisor_account),
-                      padding: EdgeInsets.all(16),
-                      shape: CircleBorder(),
+                      padding: const EdgeInsets.all(16),
+                      shape: const CircleBorder(),
+                      child: const Icon(Icons.perm_contact_calendar),
                     ),
-                    SizedBox(height: 4),
-                    Text('Clients'),
+                    const SizedBox(height: 4),
+                    const Text('Clients'),
                   ],
                 ),
               ],
@@ -151,9 +156,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF72C3E6),
+        backgroundColor: const Color(0xFF72C3E6),
         onPressed: () {},
-        child: Icon(
+        child: const Icon(
           Icons.add,
           size: 40,
         ),
@@ -170,9 +175,9 @@ class _HomePageState extends State<HomePage> {
 //top bar navigation
 AppBar _buildAppBar() {
   return AppBar(
-    backgroundColor: Color(0xFF003B57),
+    backgroundColor: const Color(0xFF003B57),
     title: Row(
-      children: [
+      children: const [
         Icon(
           Icons.notifications,
           color: Colors.white,

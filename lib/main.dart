@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'pages/homePage.dart';
 import 'pages/loadingPage.dart';
 import 'pages/calendarPage.dart';
-import '/widgets/bottom_navigation_bar.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: LoadingPage(),
       routes: {
-        '/': (BuildContext context) => LoadingPage(),
-        '/home': (context) => HomePage(),
+        '/': (BuildContext context) => const LoadingPage(),
+        '/home': (context) => const HomePage(),
         '/calendar': (context) => CalendarPage(onItemTapped: (index) {}),
       },
     );

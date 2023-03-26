@@ -1,16 +1,17 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import '/widgets/bottom_navigation_bar.dart';
 
 class ProfilePage extends StatelessWidget {
   final Function(int) onItemTapped;
 
-  ProfilePage({required this.onItemTapped});
+  const ProfilePage({super.key, required this.onItemTapped});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Center(
+      body: const Center(
         child: Text(
           'Profile',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -27,9 +28,9 @@ class ProfilePage extends StatelessWidget {
 AppBar _buildAppBar() {
   return AppBar(
     automaticallyImplyLeading: false,
-    backgroundColor: Color(0xFF003B57),
+    backgroundColor: const Color(0xFF003B57),
     title: Row(
-      children: [
+      children: const [
         Icon(
           Icons.notifications,
           color: Colors.white,

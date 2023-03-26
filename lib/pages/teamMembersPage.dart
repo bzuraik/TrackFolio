@@ -1,11 +1,12 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'profilePage.dart';
 import '/widgets/bottom_navigation_bar.dart';
 
+// ignore: camel_case_types
 class teamMembersPage extends StatelessWidget {
   final Function(int) onItemTapped;
 
-  teamMembersPage({required this.onItemTapped});
+  const teamMembersPage({super.key, required this.onItemTapped});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +14,7 @@ class teamMembersPage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               'Team Members',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -32,9 +33,9 @@ class teamMembersPage extends StatelessWidget {
 AppBar _buildAppBar() {
   return AppBar(
     automaticallyImplyLeading: false,
-    backgroundColor: Color(0xFF003B57),
+    backgroundColor: const Color(0xFF003B57),
     title: Row(
-      children: [
+      children: const [
         Icon(
           Icons.notifications,
           color: Colors.white,

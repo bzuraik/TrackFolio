@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trackfolio/pages/profilePage.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import '/pages/teamMembersPage.dart';
-// import '../pages/profilePage.dart';
 import '/pages/calendarPage.dart';
 import '/pages/homePage.dart';
 
@@ -10,9 +8,11 @@ class BottomNavBar extends StatefulWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  BottomNavBar({required this.currentIndex, required this.onTap});
+  const BottomNavBar(
+      {super.key, required this.currentIndex, required this.onTap});
 
   @override
+  // ignore: library_private_types_in_public_api
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
@@ -28,8 +28,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Color(0xFF003B57),
-      shape: CircularNotchedRectangle(),
+      color: const Color(0xFF003B57),
+      shape: const CircularNotchedRectangle(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -42,7 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             },
           ),
@@ -62,7 +62,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               );
             },
           ),
-          SizedBox(width: 30),
+          const SizedBox(width: 30),
           IconButton(
             icon: Image.asset(
               'assets/images/group.png',
