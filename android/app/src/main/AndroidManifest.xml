@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trackfolio">
    <application
-        android:label="trackfolio"
+        android:label="Trackfolio"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
