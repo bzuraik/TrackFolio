@@ -8,12 +8,14 @@ class AddClients extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Clients Profile"),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text("NEW CLIENT", style: TextStyle(color: Colors.black),),
           // save action
           actions: [
             TextButton(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
               ),
               onPressed: () { },
               //onSaved(){},
@@ -23,15 +25,22 @@ class AddClients extends StatelessWidget {
             // go back to main page
             leading: GestureDetector(
             onTap: () =>  Navigator.pop(context),
-            child: Icon(Icons.arrow_back_ios_new_rounded)),
+            child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black,)),
           ),
 
 
       body: SafeArea(
-        child: Padding(
-
-        padding: const EdgeInsets.all(8.0),
-          child: Column(children: <Widget>[
+        child: Container(
+          decoration: BoxDecoration(
+              color: Color(0xff008BCC),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50),
+                topRight: Radius.circular(50),
+              ),
+            ),
+          child: Column(
+        
+            children: <Widget>[
            
             Expanded(flex: 2,
               child: Container(
@@ -65,7 +74,7 @@ class AddClients extends StatelessWidget {
                         
                         Padding(padding: EdgeInsets.only(left: 7.0, right: 5.0),
                           child: TextFormField(
-                            style: TextStyle(color: Colors.blue, fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               labelText: 'Enter name',
@@ -74,11 +83,11 @@ class AddClients extends StatelessWidget {
                             ),
                           ),
                         ),
-
-
+        
+        
                         Padding(padding: EdgeInsets.only(left: 7.0, right: 5.0),
                           child: TextFormField(
-                            style: TextStyle(fontSize: 15),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                               labelText: 'Enter company',
@@ -87,7 +96,7 @@ class AddClients extends StatelessWidget {
                             ),
                           ),
                         ),
-
+        
                       ],),
                     ),
                   ),
@@ -95,46 +104,50 @@ class AddClients extends StatelessWidget {
               ),
             ),
           
-
-
+        
+        
           // ADDRESS
           Expanded(
             child: Container(margin: EdgeInsets.all(5.0),
               child: Column(children: [
               Align(
               alignment: AlignmentDirectional.centerStart,
-              child: Text('ADDRESS', textAlign: TextAlign.start,),
+              child: Text('ADDRESS', textAlign: TextAlign.start, 
+              style: TextStyle(color: Colors.white),),
             ),
-
-
+        
+        
               Flexible(
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: 'enter here',
                     hintStyle: TextStyle(
-                    color: Colors.grey
+                    color: Colors.grey,
                          ),
                     ),
                   ),
               ),
               ]),
             
-
+        
           ),),
-         
+                 
           // PHONE
           Expanded(
             child: Container(margin: EdgeInsets.all(5.0),
               child: Column(children: [
               Align(
               alignment: AlignmentDirectional.centerStart,
-              child: Text('PHONE', textAlign: TextAlign.start,),
+              child: Text('PHONE', textAlign: TextAlign.start,
+              style: TextStyle(color: Colors.white),),
             ),
-
-
+        
+        
               Flexible(
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: 'enter here',
@@ -148,20 +161,22 @@ class AddClients extends StatelessWidget {
              ]),
             ),
            ),
-
-
+        
+        
           // NOTES
           Expanded(flex: 2,
             child: Container(margin: EdgeInsets.all(5.0),
               child: Column(children: [
               Align(
               alignment: AlignmentDirectional.centerStart,
-              child: Text('NOTES', textAlign: TextAlign.start,),
+              child: Text('NOTES', textAlign: TextAlign.start,
+              style: TextStyle(color: Colors.white)),
               ),
-
-
+        
+        
               Flexible(
                 child: TextFormField(
+                      style: TextStyle(color: Colors.white),
                       minLines: 4,
                       maxLines: 4,
                       keyboardType: TextInputType.multiline,
@@ -177,21 +192,22 @@ class AddClients extends StatelessWidget {
                   ),
                 ),
               ),
-
+        
             ]),
             ),
           ),
-
+        
           
           // PROJECTS
             Align(
               alignment: AlignmentDirectional.centerStart,
-              child: Text('  PROJECTS', textAlign: TextAlign.start,),
+              child: Text('  PROJECTS', textAlign: TextAlign.start,
+              style: TextStyle(color: Colors.white)),
             ),
-        
+                
             Expanded(flex: 2,
             child: Row(children: [
-
+        
                 Expanded(
                   child: Container(margin: EdgeInsets.all(3),
                      decoration: BoxDecoration(
@@ -209,31 +225,31 @@ class AddClients extends StatelessWidget {
                      decoration: BoxDecoration(
                         color: Colors.purple,
                         borderRadius: BorderRadius.circular(13.0)),),),
-
+        
            
                ]),
               ),
           
-
+        
             // SEE ALL BUTTON
             Padding(padding: EdgeInsets.all(3.0) ,
               child: TextButton(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),),
               onPressed: () { }, //go to all projects
               child: Align(
                 alignment: AlignmentDirectional.bottomEnd,
                 child: Text(
                   'See all',
-                  style: TextStyle(color: Colors.blue, fontSize: 12),
+                  style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
             ),
           ),
               
- 
+         
             ],),
-          ),
+        ),
         ),      
       ),
     );
