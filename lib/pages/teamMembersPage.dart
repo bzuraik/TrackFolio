@@ -4,6 +4,7 @@ import 'profilePage.dart';
 import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import '/widgets/bottom_navigation_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TeamMember extends StatelessWidget {
   final String imageUrl;
@@ -84,44 +85,33 @@ class teamMembersPage extends StatelessWidget {
                   topRight: Radius.circular(50),
                 ),
               ),
-              child: ListView(
-                children: [
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'John Doe',
-                    position: 'Software Engineer',
-                  ),
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'Jane Smith',
-                    position: 'UI Designer',
-                  ),
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'Jane Smith',
-                    position: 'UI Designer',
-                  ),
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'Jane Smith',
-                    position: 'UI Designer',
-                  ),
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'Jane Smith',
-                    position: 'UI Designer',
-                  ),
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'Jane Smith',
-                    position: 'UI Designer',
-                  ),
-                  TeamMember(
-                    imageUrl: '',
-                    fullName: 'Jane Smith',
-                    position: 'UI Designer',
-                  ),
-                ],
+              child: StreamBuilder<QuerySnapshot>(
+                stream:
+                    fetchTeamMembersStream('46674046405012463842'), // replace '
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  }
+
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+                  return ListView(
+                    children:
+                        snapshot.data!.docs.map((DocumentSnapshot document) {
+                      Map<String, dynamic> data =
+                          document.data() as Map<String, dynamic>;
+                      return TeamMember(
+                        imageUrl: '',
+                        fullName: data['Name'] ?? '', // Add null safety check
+                        position:
+                            data['Position'] ?? '', // Add null safety check
+                      );
+                    }).toList(),
+                  );
+                },
               ),
             ),
           ),
@@ -164,4 +154,12 @@ AppBar _buildAppBar() {
       ],
     ),
   );
+}
+
+Stream<QuerySnapshot> fetchTeamMembersStream(String userId) {
+  CollectionReference teamMembers = FirebaseFirestore.instance
+      .collection('users')
+      .doc(userId)
+      .collection('TeamMembers');
+  return teamMembers.snapshots();
 }
