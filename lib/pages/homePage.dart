@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import 'package:trackfolio/pages/addClientPage.dart';
 import 'teamMembersPage.dart';
 import 'profilePage.dart';
 import 'calendarPage.dart';
@@ -7,6 +8,7 @@ import '/widgets/bottom_navigation_bar.dart';
 import 'newProjectPage.dart';
 import 'clientListPage.dart';
 import 'projectListPage.dart';
+import 'projectPage.dart';
 
 class HomePageWidget extends StatelessWidget {
   const HomePageWidget({super.key});
@@ -74,7 +76,13 @@ class _HomePageState extends State<HomePage> {
                     Column(
                       children: <Widget>[
                         MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddClients()),
+                            );
+                          },
                           color: Color(0xFF008BCC),
                           textColor: Colors.white,
                           child: Icon(Icons.add),

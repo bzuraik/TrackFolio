@@ -2,11 +2,40 @@ import 'package:flutter/material.dart';
 import 'homePage.dart';
 import '/pages/calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class NewProjectPage extends StatelessWidget {
+class NewProjectPage extends StatefulWidget {
   final Function(int) onItemTapped;
 
   NewProjectPage({required this.onItemTapped});
+
+  @override
+  _NewProjectPageState createState() => _NewProjectPageState();
+}
+
+class _NewProjectPageState extends State<NewProjectPage> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+
+  void _submitProject() async {
+    final String name = _nameController.text;
+    final String description = _descriptionController.text;
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc('46674046405012463842')
+        .collection('projects')
+        .add({
+      'name': name,
+      'desc': description,
+    }).then((value) {
+      print('Project added to Firestore!');
+      Navigator.pushNamed(context, '/home');
+    }).catchError((error) {
+      print('Failed to add project: $error');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +63,7 @@ class NewProjectPage extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             TextFormField(
+              controller: _nameController,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -41,39 +71,6 @@ class NewProjectPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-            ),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Profiles',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
-            Row(
-              children: const <Widget>[
-                Expanded(
-                  child: CircleAvatar(child: Text('1')),
-                ),
-                SizedBox(width: 8.0),
-                Expanded(
-                  child: CircleAvatar(child: Text('2')),
-                ),
-                SizedBox(width: 8.0),
-                Expanded(
-                  child: CircleAvatar(child: Text('3')),
-                ),
-                SizedBox(width: 8.0),
-                Expanded(
-                  child: CircleAvatar(child: Text('4')),
-                ),
-                SizedBox(width: 8.0),
-                Expanded(
-                  child: CircleAvatar(child: Text('5')),
-                ),
-              ],
             ),
             const SizedBox(height: 16.0),
             const Text(
@@ -85,6 +82,7 @@ class NewProjectPage extends StatelessWidget {
               ),
             ),
             TextFormField(
+              controller: _descriptionController,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -95,9 +93,7 @@ class NewProjectPage extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/home');
-              },
+              onPressed: _submitProject,
               child: const Text('Submit'),
             ),
           ],
@@ -105,7 +101,7 @@ class NewProjectPage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: 1,
-        onTap: onItemTapped,
+        onTap: widget.onItemTapped,
       ),
     );
   }
