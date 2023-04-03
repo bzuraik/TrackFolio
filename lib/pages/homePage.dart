@@ -5,6 +5,8 @@ import 'profilePage.dart';
 import 'calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import 'newProjectPage.dart';
+import 'clientListPage.dart';
+import 'projectListPage.dart';
 
 class HomePageWidget extends StatelessWidget {
   const HomePageWidget({super.key});
@@ -142,7 +144,15 @@ class _HomePageState extends State<HomePage> {
                     Column(
                       children: <Widget>[
                         MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => clientListPage(
+                                        onItemTapped: _onItemTapped,
+                                      )),
+                            );
+                          },
                           color: Color(0xFF008BCC),
                           textColor: Colors.white,
                           child: Icon(Icons.supervisor_account),
@@ -191,7 +201,13 @@ class _HomePageState extends State<HomePage> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Handle 'See All' action here
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => clientListPage(
+                                        onItemTapped: _onItemTapped,
+                                      )),
+                            );
                           },
                           child: Text(
                             'See All',
@@ -259,7 +275,13 @@ class _HomePageState extends State<HomePage> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Handle 'See All' action here
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => projectListPage(
+                                        onItemTapped: _onItemTapped,
+                                      )),
+                            );
                           },
                           child: Text(
                             'See All',
