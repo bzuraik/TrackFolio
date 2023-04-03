@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623008703349",
+    "project_id": "trackfolio-c7bda",
+    "storage_bucket": "trackfolio-c7bda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623008703349:android:35d72b81c8e32f764d293c",
+        "android_client_info": {
+          "package_name": "com.example.trackfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623008703349-fr3ra2ugkm0gsgfp0uprqr0lkbu6pv57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXDJZnG9HpndE8O5MYIa_zzq0CK31cP4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623008703349-fr3ra2ugkm0gsgfp0uprqr0lkbu6pv57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
