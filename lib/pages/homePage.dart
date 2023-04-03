@@ -1,5 +1,5 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'teamMembersPage.dart';
 import 'profilePage.dart';
 import 'calendarPage.dart';
@@ -7,9 +7,11 @@ import '/widgets/bottom_navigation_bar.dart';
 import 'newProjectPage.dart';
 
 class HomePageWidget extends StatelessWidget {
+  const HomePageWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Home Page',
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -19,7 +21,10 @@ class HomePageWidget extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -35,7 +40,7 @@ class _HomePageState extends State<HomePage> {
 
   _HomePageState() {
     _widgetOptions = <Widget>[
-      HomePageWidget(),
+      const HomePageWidget(),
       CalendarPage(onItemTapped: _onItemTapped),
       teamMembersPage(onItemTapped: _onItemTapped),
       ProfilePage(onItemTapped: _onItemTapped),
@@ -327,9 +332,9 @@ class _HomePageState extends State<HomePage> {
 //top bar navigation
 AppBar _buildAppBar() {
   return AppBar(
-    backgroundColor: Color(0xFF003B57),
+    backgroundColor: const Color(0xFF003B57),
     title: Row(
-      children: [
+      children: const [
         Icon(
           Icons.notifications,
           color: Colors.white,

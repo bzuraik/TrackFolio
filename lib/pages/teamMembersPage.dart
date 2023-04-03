@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'profilePage.dart';
 import 'dart:core';
@@ -147,9 +148,9 @@ class teamMembersPage extends StatelessWidget {
 AppBar _buildAppBar() {
   return AppBar(
     automaticallyImplyLeading: false,
-    backgroundColor: Color(0xFF003B57),
+    backgroundColor: const Color(0xFF003B57),
     title: Row(
-      children: [
+      children: const [
         Icon(
           Icons.notifications,
           color: Colors.white,
