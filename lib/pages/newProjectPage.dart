@@ -85,7 +85,6 @@ class NewProjectPage extends StatelessWidget {
               ),
             ),
             TextFormField(
-              maxLines: 5,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
