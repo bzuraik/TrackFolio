@@ -4,6 +4,7 @@ import 'teamMembersPage.dart';
 import 'profilePage.dart';
 import 'calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
+import 'newProjectPage.dart';
 
 class HomePageWidget extends StatelessWidget {
   @override
@@ -152,7 +153,15 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF72C3E6),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => NewProjectPage(
+                      onItemTapped: (int) {},
+                    )),
+          );
+        },
         child: Icon(
           Icons.add,
           size: 40,
