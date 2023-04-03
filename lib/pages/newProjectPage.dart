@@ -97,7 +97,7 @@ class NewProjectPage extends StatelessWidget {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.pushNamed(context, '/home');
               },
               child: const Text('Submit'),
             ),
