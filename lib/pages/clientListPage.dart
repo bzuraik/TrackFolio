@@ -23,7 +23,9 @@ class clientListPage extends StatelessWidget {
         onPressed: () {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => AddClients()),
+            MaterialPageRoute(builder: (context) => AddClients(
+               onItemTapped: onItemTapped,
+            )),
           );
         },
         child: Icon(
