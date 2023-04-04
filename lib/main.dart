@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/homePage.dart';
 import 'pages/loadingPage.dart';
 import 'pages/calendarPage.dart';
-import '/widgets/bottom_navigation_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'dart:math';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +23,7 @@ void main() async {
 //         generateRandomId(); // Replace this line with the actual client ID from your clients
 //     await addProject(userId, projectId, 'Project $i', clientId);
 //   }
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -8,7 +8,6 @@ import '/widgets/bottom_navigation_bar.dart';
 import 'newProjectPage.dart';
 import 'clientListPage.dart';
 import 'projectListPage.dart';
-import 'projectPage.dart';
 import '../classes/client.dart';
 import '../classes/project.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -63,7 +62,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final String userId = '46674046405012463842';
+    const String userId = '46674046405012463842';
+
     CollectionReference clientsRef = FirebaseFirestore.instance
         .collection('users')
         .doc(userId)
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
 
           final List<Client> clients =
@@ -109,13 +109,13 @@ class _HomePageState extends State<HomePage> {
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 }
                 final List<Project> projects =
                     snapshot.data!.docs.map((DocumentSnapshot document) {
                   return Project(
                     projectName: document['name'],
-                    projectImage: ' ',
+                    // projectImage: ' ',
                     projectDescription: ' ',
                   );
                 }).toList();
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                   appBar: _selectedIndex == 0 ? _buildAppBar() : null,
                   body: Column(
                     children: [
-                      Container(
+                      SizedBox(
                         height: MediaQuery.of(context).size.height * 0.25,
                         width: MediaQuery.of(context).size.width,
                         child: Column(
@@ -141,34 +141,33 @@ class _HomePageState extends State<HomePage> {
                                         Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                 AddClients(
+                                              builder: (context) => AddClients(
                                                     onItemTapped: _onItemTapped,
                                                   )),
                                         );
                                       },
-                                      color: Color(0xFF008BCC),
+                                      color: const Color(0xFF008BCC),
                                       textColor: Colors.white,
-                                      child: Icon(Icons.add),
-                                      padding: EdgeInsets.all(16),
-                                      shape: CircleBorder(),
+                                      padding: const EdgeInsets.all(16),
+                                      shape: const CircleBorder(),
+                                      child: const Icon(Icons.add),
                                     ),
-                                    SizedBox(height: 4),
-                                    Text('New Clients'),
+                                    const SizedBox(height: 4),
+                                    const Text('New Clients'),
                                   ],
                                 ),
                                 Column(
                                   children: <Widget>[
                                     MaterialButton(
                                       onPressed: () {},
-                                      color: Color(0xFF008BCC),
+                                      color: const Color(0xFF008BCC),
                                       textColor: Colors.white,
-                                      child: Icon(Icons.cloud_upload),
-                                      padding: EdgeInsets.all(16),
-                                      shape: CircleBorder(),
+                                      padding: const EdgeInsets.all(16),
+                                      shape: const CircleBorder(),
+                                      child: const Icon(Icons.cloud_upload),
                                     ),
-                                    SizedBox(height: 4),
-                                    Text('Upload'),
+                                    const SizedBox(height: 4),
+                                    const Text('Upload'),
                                   ],
                                 ),
                                 Column(
@@ -184,19 +183,19 @@ class _HomePageState extends State<HomePage> {
                                                   )),
                                         );
                                       },
-                                      color: Color(0xFF008BCC),
+                                      color: const Color(0xFF008BCC),
                                       textColor: Colors.white,
-                                      child: Icon(Icons.people),
-                                      padding: EdgeInsets.all(16),
-                                      shape: CircleBorder(),
+                                      padding: const EdgeInsets.all(16),
+                                      shape: const CircleBorder(),
+                                      child: const Icon(Icons.people),
                                     ),
-                                    SizedBox(height: 4),
-                                    Text('Team'),
+                                    const SizedBox(height: 4),
+                                    const Text('Team'),
                                   ],
                                 ),
                               ],
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -204,14 +203,14 @@ class _HomePageState extends State<HomePage> {
                                   children: <Widget>[
                                     MaterialButton(
                                       onPressed: () {},
-                                      color: Color(0xFF008BCC),
+                                      color: const Color(0xFF008BCC),
                                       textColor: Colors.white,
-                                      child: Icon(Icons.bar_chart),
-                                      padding: EdgeInsets.all(16),
-                                      shape: CircleBorder(),
+                                      padding: const EdgeInsets.all(16),
+                                      shape: const CircleBorder(),
+                                      child: const Icon(Icons.bar_chart),
                                     ),
-                                    SizedBox(height: 4),
-                                    Text('Statistics'),
+                                    const SizedBox(height: 4),
+                                    const Text('Statistics'),
                                   ],
                                 ),
                                 Column(
@@ -227,14 +226,15 @@ class _HomePageState extends State<HomePage> {
                                                   )),
                                         );
                                       },
-                                      color: Color(0xFF008BCC),
+                                      color: const Color(0xFF008BCC),
                                       textColor: Colors.white,
-                                      child: Icon(Icons.supervisor_account),
-                                      padding: EdgeInsets.all(16),
-                                      shape: CircleBorder(),
+                                      padding: const EdgeInsets.all(16),
+                                      shape: const CircleBorder(),
+                                      child:
+                                          const Icon(Icons.supervisor_account),
                                     ),
-                                    SizedBox(height: 4),
-                                    Text('Clients'),
+                                    const SizedBox(height: 4),
+                                    const Text('Clients'),
                                   ],
                                 ),
                               ],
@@ -246,11 +246,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Container(
                         height: MediaQuery.of(context).size.height * 0.01,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                       ),
                       Expanded(
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xff008BCC),
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(50),
@@ -267,7 +267,7 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Recent Clients",
                                       style: TextStyle(
                                           fontSize: 20,
@@ -286,7 +286,7 @@ class _HomePageState extends State<HomePage> {
                                                   )),
                                         );
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'See All',
                                         style: TextStyle(
                                             color: Colors
@@ -296,68 +296,66 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 120,
                                 width: MediaQuery.of(context).size.width,
-                                child: Container(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: List.generate(
-                                        pinnedClients.length, (index) {
-                                      return Expanded(
-                                        child: Container(
-                                          height: 110,
-                                          width: 120,
-                                          margin: EdgeInsets.all(5.0),
-                                          padding: EdgeInsets.all(5.0),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10.0),
-                                              topRight: Radius.circular(10.0),
-                                              bottomLeft: Radius.circular(10.0),
-                                              bottomRight:
-                                                  Radius.circular(10.0),
-                                            ),
-                                            color: Color.fromARGB(
-                                                255, 255, 255, 255),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.4),
-                                                spreadRadius: 2,
-                                                blurRadius: 6,
-                                                offset: Offset(0,
-                                                    1), // changes position of shadow
-                                              ),
-                                            ],
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: List.generate(pinnedClients.length,
+                                      (index) {
+                                    return Expanded(
+                                      child: Container(
+                                        height: 110,
+                                        width: 120,
+                                        margin: const EdgeInsets.all(5.0),
+                                        padding: const EdgeInsets.all(5.0),
+                                        decoration: BoxDecoration(
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(10.0),
+                                            topRight: Radius.circular(10.0),
+                                            bottomLeft: Radius.circular(10.0),
+                                            bottomRight: Radius.circular(10.0),
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: <Widget>[
-                                              CircleAvatar(
-                                                backgroundImage: NetworkImage(
-                                                    '${pinnedClients[index].clientImage}'),
-                                                radius: 30.0,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.all(10.0),
-                                                child: Text(
-                                                  '${pinnedClients[index].clientName}',
-                                                  style: TextStyle(
-                                                    fontSize: 13,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Color(0xFF003B57),
-                                                  ),
+                                          color: const Color(0xFF72C3E6),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color:
+                                                  Colors.grey.withOpacity(0.4),
+                                              spreadRadius: 2,
+                                              blurRadius: 6,
+                                              offset: const Offset(0,
+                                                  1), // changes position of shadow
+                                            ),
+                                          ],
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  pinnedClients[index]
+                                                      .clientImage),
+                                              radius: 30.0,
+                                            ),
+                                            Container(
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              child: Text(
+                                                pinnedClients[index].clientName,
+                                                style: const TextStyle(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Color(0xFF003B57),
                                                 ),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
-                                      );
-                                    }),
-                                  ),
+                                      ),
+                                    );
+                                  }),
                                 ),
                               ),
                               Padding(
@@ -367,7 +365,7 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Recent Projects",
                                       style: TextStyle(
                                           fontSize: 20,
@@ -386,7 +384,7 @@ class _HomePageState extends State<HomePage> {
                                                   )),
                                         );
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'See All',
                                         style: TextStyle(
                                             color: Colors
@@ -396,10 +394,10 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: MediaQuery.of(context).size.width / 2,
                                 child: GridView.builder(
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
@@ -437,7 +435,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   floatingActionButton: FloatingActionButton(
-                    backgroundColor: Color(0xFF72C3E6),
+                    backgroundColor: const Color(0xFF72C3E6),
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
@@ -447,7 +445,7 @@ class _HomePageState extends State<HomePage> {
                                 )),
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.add,
                       size: 40,
                     ),

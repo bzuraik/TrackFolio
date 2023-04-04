@@ -1,3 +1,4 @@
+// ignore_for_file: file_names, must_be_immutable
 import 'package:flutter/material.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,7 +9,7 @@ class AddClients extends StatelessWidget {
 
   var documentID;
 
-  AddClients({required this.onItemTapped});
+  AddClients({super.key, required this.onItemTapped});
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _companyController = TextEditingController();
@@ -34,8 +35,8 @@ class AddClients extends StatelessWidget {
           children: [
             Container(
               height: MediaQuery.of(context).size.height * 0.1,
-              decoration: BoxDecoration(),
-              child: Center(
+              decoration: const BoxDecoration(),
+              child: const Center(
                 child: Text(
                   "New Client",
                   style: TextStyle(
@@ -45,11 +46,9 @@ class AddClients extends StatelessWidget {
                 ),
               ),
             ),
-
-
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xff008BCC),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
@@ -60,98 +59,103 @@ class AddClients extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       flex: 2,
-                      child: Container(
-                          child: Row(
-                            children: [
-                              // profile pic
-                              Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    child: CircleAvatar(
-                                      radius: 60,
-                                      backgroundColor: Colors.blue,
-                                      child: CircleAvatar(
-                                        radius: 58,
-                                        backgroundColor: Colors.white,
-                                        //backgroundImage: NetworkImage(
-                                        //'INSERT_YOUR_URL_HERE',
-                                        // ),
-                                        //),
+                      child: Row(
+                        children: [
+                          // profile pic
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Expanded(
+                              flex: 1,
+                              child: CircleAvatar(
+                                radius: 60,
+                                backgroundColor: Colors.blue,
+                                child: CircleAvatar(
+                                  radius: 58,
+                                  backgroundColor: Colors.white,
+                                  //backgroundImage: NetworkImage(
+                                  //'INSERT_YOUR_URL_HERE',
+                                  // ),
+                                  //),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // name and company
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 7.0, right: 5.0),
+                                    child: TextFormField(
+                                      controller: _nameController,
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                      decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Enter Client Name',
+                                        labelStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.white),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-
-                              // name and company
-                              Expanded(
-                                flex: 2,
-                                child: Container(
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.only(left: 7.0, right: 5.0),
-                                          child: TextFormField(
-                                            controller: _nameController,
-                                            style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
-                                            decoration: const InputDecoration(
-                                              border: InputBorder.none,
-                                              labelText: 'Enter Client Name',
-                                              labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                              hintStyle: TextStyle(
-                                                color: Colors.white,
-                                              ),
-                                              enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(color: Colors.white),
-                                              ),
-                                              focusedBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(color: Colors.blue),
-                                              ),
-                                            ),
-                                          ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 7.0, right: 5.0),
+                                    child: TextFormField(
+                                      controller: _companyController,
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                      decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Enter Client Company',
+                                        labelStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.white),
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
                                         ),
                                       ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.only(left: 7.0, right: 5.0),
-                                          child: TextFormField(
-                                            controller: _companyController,
-                                            style: TextStyle(
-                                                color: Colors.white, fontSize: 20),
-                                            decoration: const InputDecoration(
-                                              border: InputBorder.none,
-                                              labelText: 'Enter Client Company',
-                                              labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                              hintStyle: TextStyle(
-                                                color: Colors.white,
-                                              ),
-                                              enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(color: Colors.white),
-                                              ),
-                                              focusedBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(color: Colors.blue),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          )),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
 
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.all(5.0),
+                        margin: const EdgeInsets.all(5.0),
                         child: Column(children: [
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional.centerStart,
                             child: Text(
                               'IMAGE URL',
@@ -162,9 +166,9 @@ class AddClients extends StatelessWidget {
                           Flexible(
                             child: TextFormField(
                               controller: _imageURLController,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               keyboardType: TextInputType.multiline,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
@@ -181,9 +185,9 @@ class AddClients extends StatelessWidget {
                     // ADDRESS
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.all(5.0),
+                        margin: const EdgeInsets.all(5.0),
                         child: Column(children: [
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional.centerStart,
                             child: Text(
                               'ADDRESS',
@@ -194,9 +198,9 @@ class AddClients extends StatelessWidget {
                           Flexible(
                             child: TextFormField(
                               controller: _addressController,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               keyboardType: TextInputType.multiline,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
@@ -213,9 +217,9 @@ class AddClients extends StatelessWidget {
                     // PHONE
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.all(5.0),
+                        margin: const EdgeInsets.all(5.0),
                         child: Column(children: [
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional.centerStart,
                             child: Text(
                               'PHONE',
@@ -226,9 +230,9 @@ class AddClients extends StatelessWidget {
                           Flexible(
                             child: TextFormField(
                               controller: _phoneController,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               keyboardType: TextInputType.multiline,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.white),
                                 ),
@@ -246,9 +250,9 @@ class AddClients extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        margin: EdgeInsets.all(5.0),
+                        margin: const EdgeInsets.all(5.0),
                         child: Column(children: [
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional.centerStart,
                             child: Text('NOTES',
                                 textAlign: TextAlign.start,
@@ -257,15 +261,17 @@ class AddClients extends StatelessWidget {
                           Flexible(
                             child: TextFormField(
                               controller: _notesController,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               minLines: 4,
                               maxLines: 4,
                               keyboardType: TextInputType.multiline,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(
                                   gapPadding: 10.0,
-                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                                  borderSide: BorderSide(color: Colors.white, width: 1.0),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.white, width: 1.0),
                                 ),
                               ),
                             ),
@@ -280,21 +286,24 @@ class AddClients extends StatelessWidget {
                         redirectToNewPage(context),
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Color(0xff008BCC)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color(0xff008BCC)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(color: Colors.white),
+                            side: const BorderSide(color: Colors.white),
                           ),
                         ),
                       ),
-                      child: Text('Save Client'),
+                      child: const Text('Save Client'),
                     ),
                   ],
                 ),
               ),
             ),
-          ],),
+          ],
+        ),
       ),
     );
   }
@@ -320,8 +329,8 @@ class AddClients extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        // builder: (context) => ClientsProfile(data: documentID),
-        builder: (context) => HomePage()),
+          // builder: (context) => ClientsProfile(data: documentID),
+          builder: (context) => const HomePage()),
     );
   }
 
@@ -354,7 +363,6 @@ class AddClients extends StatelessWidget {
       print('Failed to add project: $error');
     });
   }
-
 }
 
 //top bar navigation
@@ -374,9 +382,7 @@ AppBar _buildAppBar() {
           Icons.search,
           color: Colors.white,
         ),
-
       ],
     ),
   );
 }
-
