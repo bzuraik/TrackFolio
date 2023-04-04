@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                     snapshot.data!.docs.map((DocumentSnapshot document) {
                   return Project(
                     projectName: document['name'],
-                    projectImage: ' ',
+                    // projectImage: ' ',
                     projectDescription: ' ',
                   );
                 }).toList();
