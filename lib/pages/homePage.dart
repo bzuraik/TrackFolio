@@ -141,8 +141,9 @@ class _HomePageState extends State<HomePage> {
                                         Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const AddClients()),
+                                              builder: (context) => AddClients(
+                                                    onItemTapped: _onItemTapped,
+                                                  )),
                                         );
                                       },
                                       color: const Color(0xFF008BCC),
@@ -270,7 +271,7 @@ class _HomePageState extends State<HomePage> {
                                       "Recent Clients",
                                       style: TextStyle(
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Lato',
                                           color: Colors
                                               .white), // Make the text white
                                     ),
@@ -368,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                                       "Recent Projects",
                                       style: TextStyle(
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Lato',
                                           color: Colors
                                               .white), // Make the text white
                                     ),
