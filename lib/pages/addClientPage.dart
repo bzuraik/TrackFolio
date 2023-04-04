@@ -1,5 +1,5 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddClients extends StatelessWidget {
   const AddClients({super.key});
@@ -10,7 +10,7 @@ class AddClients extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          title: Text(
+          title: const Text(
             "NEW CLIENT",
             style: TextStyle(color: Colors.black),
           ),
@@ -22,20 +22,20 @@ class AddClients extends StatelessWidget {
               ),
               onPressed: () {},
               //onSaved(){},
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
           ],
           // go back to main page
           leading: GestureDetector(
               onTap: () => Navigator.pop(context),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back_ios_new_rounded,
                 color: Colors.black,
               )),
         ),
         body: SafeArea(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xff008BCC),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50),
@@ -46,26 +46,23 @@ class AddClients extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   flex: 2,
-                  child: Container(
-                      child: Row(
+                  child: Row(
                     children: [
                       // profile pic
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Expanded(
                           flex: 1,
-                          child: Container(
+                          child: CircleAvatar(
+                            radius: 60,
+                            backgroundColor: Colors.blue,
                             child: CircleAvatar(
-                              radius: 60,
-                              backgroundColor: Colors.blue,
-                              child: CircleAvatar(
-                                radius: 58,
-                                backgroundColor: Colors.white,
-                                //backgroundImage: NetworkImage(
-                                //'INSERT_YOUR_URL_HERE',
-                                // ),
-                                //),
-                              ),
+                              radius: 58,
+                              backgroundColor: Colors.white,
+                              //backgroundImage: NetworkImage(
+                              //'INSERT_YOUR_URL_HERE',
+                              // ),
+                              //),
                             ),
                           ),
                         ),
@@ -74,51 +71,51 @@ class AddClients extends StatelessWidget {
                       // name and company
                       Expanded(
                         flex: 2,
-                        child: Container(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 7.0, right: 5.0),
-                                child: TextFormField(
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                  decoration: const InputDecoration(
-                                    border: InputBorder.none,
-                                    labelText: 'Enter name',
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey,
-                                    ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 7.0, right: 5.0),
+                              child: TextFormField(
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  labelText: 'Enter name',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 7.0, right: 5.0),
-                                child: TextFormField(
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 15),
-                                  decoration: const InputDecoration(
-                                    border: InputBorder.none,
-                                    labelText: 'Enter company',
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey,
-                                    ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 7.0, right: 5.0),
+                              child: TextFormField(
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 15),
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  labelText: 'Enter company',
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
-                  )),
+                  ),
                 ),
 
                 // ADDRESS
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.all(5.0),
+                    margin: const EdgeInsets.all(5.0),
                     child: Column(children: [
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional.centerStart,
                         child: Text(
                           'ADDRESS',
@@ -128,9 +125,9 @@ class AddClients extends StatelessWidget {
                       ),
                       Flexible(
                         child: TextFormField(
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           keyboardType: TextInputType.multiline,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'enter here',
                             hintStyle: TextStyle(
                               color: Colors.grey,
@@ -145,9 +142,9 @@ class AddClients extends StatelessWidget {
                 // PHONE
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.all(5.0),
+                    margin: const EdgeInsets.all(5.0),
                     child: Column(children: [
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional.centerStart,
                         child: Text(
                           'PHONE',
@@ -157,9 +154,9 @@ class AddClients extends StatelessWidget {
                       ),
                       Flexible(
                         child: TextFormField(
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           keyboardType: TextInputType.multiline,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'enter here',
                             hintStyle: TextStyle(color: Colors.grey),
                           ),
@@ -173,9 +170,9 @@ class AddClients extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: Container(
-                    margin: EdgeInsets.all(5.0),
+                    margin: const EdgeInsets.all(5.0),
                     child: Column(children: [
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional.centerStart,
                         child: Text('NOTES',
                             textAlign: TextAlign.start,
@@ -183,11 +180,11 @@ class AddClients extends StatelessWidget {
                       ),
                       Flexible(
                         child: TextFormField(
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           minLines: 4,
                           maxLines: 4,
                           keyboardType: TextInputType.multiline,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'enter here',
                             hintStyle: TextStyle(color: Colors.grey),
                             border: OutlineInputBorder(
@@ -203,7 +200,7 @@ class AddClients extends StatelessWidget {
                 ),
 
                 // PROJECTS
-                Align(
+                const Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: Text('  PROJECTS',
                       textAlign: TextAlign.start,
@@ -215,7 +212,7 @@ class AddClients extends StatelessWidget {
                   child: Row(children: [
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.all(3),
+                        margin: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(13.0)),
@@ -223,7 +220,7 @@ class AddClients extends StatelessWidget {
                     ),
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.all(3),
+                        margin: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                             color: Colors.greenAccent,
                             borderRadius: BorderRadius.circular(13.0)),
@@ -231,7 +228,7 @@ class AddClients extends StatelessWidget {
                     ),
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.all(3),
+                        margin: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                             color: Colors.purple,
                             borderRadius: BorderRadius.circular(13.0)),
@@ -242,14 +239,14 @@ class AddClients extends StatelessWidget {
 
                 // SEE ALL BUTTON
                 Padding(
-                  padding: EdgeInsets.all(3.0),
+                  padding: const EdgeInsets.all(3.0),
                   child: TextButton(
                     style: ButtonStyle(
                       foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.white),
                     ),
                     onPressed: () {}, //go to all projects
-                    child: Align(
+                    child: const Align(
                       alignment: AlignmentDirectional.bottomEnd,
                       child: Text(
                         'See all',
