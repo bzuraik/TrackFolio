@@ -186,16 +186,25 @@ class _BodyWidgetState extends State<BodyWidget> {
                       bottomLeft: Radius.circular(10.0),
                       bottomRight: Radius.circular(10.0),
                     ),
-                    color: Color(0xFF72C3E6),
+                    color: Color(0xff008BCC),
                   ),
                   child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage:
-                          NetworkImage('${projects[index].projectImage}'),
-                      radius: 30.0,
+                    leading: Image.asset(
+                      'assets/images/projectIcon.png', // Replace with the path to your custom image file
+                      width: 40.0,
+                      height: 40.0,
                     ),
-                    title: Text("${projects[index].projectName}"),
-                    subtitle: Text("${projects[index].projectDescription}"),
+                    title: Text(
+                      "${projects[index].projectName}",
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    subtitle: Text(
+                      "${projects[index].projectDescription}",
+                      style: TextStyle(fontSize: 14.0, color: Colors.white),
+                    ),
                   ),
                 );
               }),

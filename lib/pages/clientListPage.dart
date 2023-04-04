@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trackfolio/pages/addClientPage.dart';
 import 'dart:io';
 import 'profilePage.dart';
 import '/widgets/bottom_navigation_bar.dart';
@@ -17,6 +18,20 @@ class clientListPage extends StatelessWidget {
       body: SafeArea(
         child: BodyWidget(),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF72C3E6),
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => AddClients()),
+          );
+        },
+        child: Icon(
+          Icons.add,
+          size: 40,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavBar(
         currentIndex: 1,
         onTap: onItemTapped,
@@ -220,7 +235,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                             bottomLeft: Radius.circular(10.0),
                             bottomRight: Radius.circular(10.0),
                           ),
-                          color: Color(0xFF72C3E6),
+                          color: Color(0xff008BCC),
                         ),
                         child: ListTile(
                           leading: CircleAvatar(
@@ -228,8 +243,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 NetworkImage('${clients[index].clientImage}'),
                             radius: 30.0,
                           ),
-                          title: Text("${clients[index].clientName}"),
-                          subtitle: Text("${clients[index].clientCompany}"),
+                          title: Text(
+                            "${clients[index].clientName}",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          subtitle: Text(
+                            "${clients[index].clientCompany}",
+                            style:
+                                TextStyle(fontSize: 14.0, color: Colors.white),
+                          ),
                         ),
                       );
                     }),
