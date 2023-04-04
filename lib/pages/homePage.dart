@@ -142,7 +142,9 @@ class _HomePageState extends State<HomePage> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  AddClients()),
+                                                 AddClients(
+                                                    onItemTapped: _onItemTapped,
+                                                  )),
                                         );
                                       },
                                       color: Color(0xFF008BCC),
