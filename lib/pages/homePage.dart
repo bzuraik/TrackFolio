@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                                       "Recent Clients",
                                       style: TextStyle(
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Lato',
                                           color: Colors
                                               .white), // Make the text white
                                     ),
@@ -317,7 +317,8 @@ class _HomePageState extends State<HomePage> {
                                               bottomRight:
                                                   Radius.circular(10.0),
                                             ),
-                                            color: Color(0xFF72C3E6),
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255),
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Colors.grey
@@ -368,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                                       "Recent Projects",
                                       style: TextStyle(
                                           fontSize: 20,
-                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Lato',
                                           color: Colors
                                               .white), // Make the text white
                                     ),
