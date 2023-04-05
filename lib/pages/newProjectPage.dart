@@ -1,6 +1,5 @@
+// ignore_for_file: file_names, avoid_print
 import 'package:flutter/material.dart';
-import 'homePage.dart';
-import '/pages/calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/widgets/CustomAppBar.dart';
@@ -8,10 +7,10 @@ import '/widgets/CustomAppBar.dart';
 class NewProjectPage extends StatefulWidget {
   final Function(int) onItemTapped;
 
-  NewProjectPage({required this.onItemTapped});
+  const NewProjectPage({super.key, required this.onItemTapped});
 
   @override
-  _NewProjectPageState createState() => _NewProjectPageState();
+  State<NewProjectPage> createState() => _NewProjectPageState();
 }
 
 class _NewProjectPageState extends State<NewProjectPage> {

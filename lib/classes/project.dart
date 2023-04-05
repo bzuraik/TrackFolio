@@ -1,7 +1,7 @@
 class Project {
   final String projectName;
-  final String projectImage;
   final String projectDescription;
+  // final String projectImage;
   // final String projectClient;
   // final String projectLabels;
   // final String projectTasks;
@@ -9,8 +9,8 @@ class Project {
 
   Project({
     required this.projectName,
-    required this.projectImage,
     required this.projectDescription,
+    // required this.projectImage,
     // required this.projectClient,
     // required this.projectLabels,
     // required this.projectTasks,

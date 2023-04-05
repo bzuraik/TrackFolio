@@ -1,8 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, camel_case_types
 import 'package:flutter/material.dart';
-import 'profilePage.dart';
 import 'dart:core';
-import 'package:flutter/cupertino.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/widgets/CustomAppBar.dart';
@@ -13,6 +11,7 @@ class TeamMember extends StatelessWidget {
   final String position;
 
   const TeamMember({
+    super.key,
     required this.imageUrl,
     required this.fullName,
     required this.position,
@@ -24,25 +23,25 @@ class TeamMember extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       child: Row(
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: AssetImage('assets/images/profile.png'),
             radius: 30,
           ),
-          SizedBox(width: 16.0),
+          const SizedBox(width: 16.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 fullName,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(height: 4.0),
+              const SizedBox(height: 4.0),
               Text(
                 position,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ],
           ),
@@ -55,7 +54,7 @@ class TeamMember extends StatelessWidget {
 class teamMembersPage extends StatelessWidget {
   final Function(int) onItemTapped;
 
-  teamMembersPage({required this.onItemTapped});
+  const teamMembersPage({super.key, required this.onItemTapped});
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +65,8 @@ class teamMembersPage extends StatelessWidget {
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.1,
-            decoration: BoxDecoration(),
-            child: Center(
+            decoration: const BoxDecoration(),
+            child: const Center(
               child: Text(
                 "Team Members",
                 style: TextStyle(
@@ -79,7 +78,7 @@ class teamMembersPage extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xff008BCC),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
@@ -96,7 +95,7 @@ class teamMembersPage extends StatelessWidget {
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   }
 
                   return ListView(
@@ -120,9 +119,9 @@ class teamMembersPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 0,
-        backgroundColor: Color(0xFF72C3E6),
+        backgroundColor: const Color(0xFF72C3E6),
         onPressed: () {},
-        child: Icon(
+        child: const Icon(
           Icons.add,
           size: 40,
         ),
