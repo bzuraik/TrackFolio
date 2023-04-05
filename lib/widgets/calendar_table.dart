@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+// A custom widget for the Table Calendar
 class CalendarTable extends StatelessWidget {
+  // Constructor with required properties
   const CalendarTable({
     Key? key,
     required this.calendarFormat,
@@ -29,6 +31,7 @@ class CalendarTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Return the TableCalendar widget with the given properties
     return TableCalendar(
       calendarFormat: calendarFormat,
       focusedDay: focusedDay,

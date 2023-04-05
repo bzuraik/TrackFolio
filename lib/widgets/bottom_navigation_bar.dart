@@ -4,6 +4,7 @@ import '/pages/teamMembersPage.dart';
 import '/pages/calendarPage.dart';
 import '/pages/homePage.dart';
 
+// Custom bottom navigation bar widget
 class BottomNavBar extends StatefulWidget {
   final int currentIndex;
   final Function(int) onTap;
@@ -12,7 +13,6 @@ class BottomNavBar extends StatefulWidget {
       {super.key, required this.currentIndex, required this.onTap});
 
   @override
-  // ignore: library_private_types_in_public_api
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 

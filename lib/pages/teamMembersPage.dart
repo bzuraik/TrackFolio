@@ -5,6 +5,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/widgets/CustomAppBar.dart';
 
 class TeamMember extends StatelessWidget {
   final String imageUrl;
@@ -59,7 +60,7 @@ class teamMembersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: CustomAppBar(),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -135,26 +136,26 @@ class teamMembersPage extends StatelessWidget {
   }
 }
 
-AppBar _buildAppBar() {
-  return AppBar(
-    automaticallyImplyLeading: false,
-    backgroundColor: const Color(0xFF003B57),
-    title: Row(
-      children: const [
-        Icon(
-          Icons.notifications,
-          color: Colors.white,
-        ),
-        SizedBox(width: 20),
-        Spacer(),
-        Icon(
-          Icons.search,
-          color: Colors.white,
-        ),
-      ],
-    ),
-  );
-}
+// AppBar _buildAppBar() {
+//   return AppBar(
+//     automaticallyImplyLeading: false,
+//     backgroundColor: const Color(0xFF003B57),
+//     title: Row(
+//       children: const [
+//         Icon(
+//           Icons.notifications,
+//           color: Colors.white,
+//         ),
+//         SizedBox(width: 20),
+//         Spacer(),
+//         Icon(
+//           Icons.search,
+//           color: Colors.white,
+//         ),
+//       ],
+//     ),
+//   );
+// }
 
 Stream<QuerySnapshot> fetchTeamMembersStream(String userId) {
   CollectionReference teamMembers = FirebaseFirestore.instance

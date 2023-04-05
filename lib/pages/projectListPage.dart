@@ -3,6 +3,7 @@ import 'package:trackfolio/lists/projectList.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import '../classes/project.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/widgets/CustomAppBar.dart';
 
 class projectListPage extends StatelessWidget {
   final Function(int) onItemTapped;
@@ -11,7 +12,7 @@ class projectListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: CustomAppBar(),
       body: SafeArea(
         child: BodyWidget(),
       ),

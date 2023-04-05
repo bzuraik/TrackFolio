@@ -3,6 +3,7 @@ import 'homePage.dart';
 import '/pages/calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/widgets/CustomAppBar.dart';
 
 class NewProjectPage extends StatefulWidget {
   final Function(int) onItemTapped;
@@ -39,7 +40,7 @@ class _NewProjectPageState extends State<NewProjectPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: CustomAppBar(),
       body: Container(
         decoration: const BoxDecoration(
           color: Color(0xFF008BCC),

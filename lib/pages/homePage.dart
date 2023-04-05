@@ -5,6 +5,7 @@ import 'teamMembersPage.dart';
 import 'profilePage.dart';
 import 'calendarPage.dart';
 import '/widgets/bottom_navigation_bar.dart';
+import '/widgets/CustomAppBar.dart';
 import 'newProjectPage.dart';
 import 'clientListPage.dart';
 import 'projectListPage.dart';
@@ -122,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 final List<Project> pinnedPorjects = projects.take(4).toList();
 
                 return Scaffold(
-                  appBar: _selectedIndex == 0 ? _buildAppBar() : null,
+                  appBar: _selectedIndex == 0 ? CustomAppBar() : null,
                   body: Column(
                     children: [
                       Container(

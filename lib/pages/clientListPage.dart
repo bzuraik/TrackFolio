@@ -3,6 +3,7 @@ import 'package:trackfolio/pages/addClientPage.dart';
 import 'dart:io';
 import 'profilePage.dart';
 import '/widgets/bottom_navigation_bar.dart';
+import '/widgets/CustomAppBar.dart';
 import '../classes/client.dart';
 import '../lists/clientList.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,7 +15,7 @@ class clientListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: CustomAppBar(),
       body: SafeArea(
         child: BodyWidget(),
       ),

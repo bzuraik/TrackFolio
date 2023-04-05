@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '/widgets/bottom_navigation_bar.dart';
 import '/widgets/calendar_table.dart';
+import '/widgets/CustomAppBar.dart';
 
 class CalendarPage extends StatefulWidget {
   final Function(int) onItemTapped;
@@ -21,7 +22,7 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: CustomAppBar(),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
